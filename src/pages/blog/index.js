@@ -1,6 +1,7 @@
 import React from "react";
 import {graphql,Link} from 'gatsby';
 import Layout from "../../components/layout";
+import BlogPostPreview from "../../components/blog-post-preview";
 
 const BlogIndex = ({ data }) => {
   return (
@@ -9,9 +10,9 @@ const BlogIndex = ({ data }) => {
       <ul>
         {data.allContentfulBlog.nodes.map((node) => {
           return (
-            <li key={node.id}>
-              <Link to={'/blog/' + node.slug}>{node.title}</Link>
-            </li>
+            <section key={node.id}>
+              <BlogPostPreview post={node}></BlogPostPreview>
+            </section>
           )
         })}
       </ul>
@@ -28,6 +29,7 @@ query {
       title
       id
       slug
+      publishDate
     }
   }
 }
