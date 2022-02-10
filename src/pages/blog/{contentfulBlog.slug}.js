@@ -5,6 +5,8 @@ import * as Styles from "./{contentfulBlog.slug}.module.scss";
 import { DateTime } from "luxon";
 import Heading from "../../components/heading";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+import { BLOCKS } from '@contentful/rich-text-types'
 
 const BlogPost = ({data}) => {
   let post = data.contentfulBlog;
@@ -18,6 +20,19 @@ const BlogPost = ({data}) => {
         <Heading level={1}>{post.title}</Heading>
         <time className={Styles.publishDate} dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
         {(post.minimumAge && post.maximumAge) && <div>Recommended age {post.minimumAge} - {post.maximumAge}</div>}
+        {renderRichText(post.body, {
+          renderNode: {
+            [BLOCKS.EMBEDDED_ASSET]: (node) => {
+              const { gatsbyImageData, description } = node.data.target;
+              return (
+                <GatsbyImage
+                  image={getImage(gatsbyImageData)}
+                  alt={description}
+                />
+              )
+            }
+          }
+        })}
       </div>
     </Layout>
   )
@@ -33,6 +48,18 @@ export const query = graphql`
       publishDate
       minimumAge
       maximumAge
+      body {
+        raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            title
+            description
+            gatsbyImageData(width: 800)
+            __typename
+          }
+        }
+      }
       billboard {
         description
         gatsbyImageData(layout: FULL_WIDTH)
