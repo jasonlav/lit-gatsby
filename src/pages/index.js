@@ -5,7 +5,7 @@ import "./index.scss";
 const IndexPage = () => {
     return (
         <Layout>
-            Index!
+            <h1>Welcome!</h1>
         </Layout>
     )
 }
