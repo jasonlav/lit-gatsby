@@ -7,7 +7,7 @@ const BlogIndex = ({ data }) => {
   return (
     <Layout>
       <h1>Blog</h1>
-      <ul>
+      <div>
         {data.allContentfulBlog.nodes.map((node) => {
           return (
             <section key={node.id}>
@@ -15,7 +15,7 @@ const BlogIndex = ({ data }) => {
             </section>
           )
         })}
-      </ul>
+      </div>
     </Layout>
   )
 }
@@ -30,6 +30,10 @@ query {
       id
       slug
       publishDate
+      billboard {
+        description
+        gatsbyImageData(width: 300)
+      }
     }
   }
 }
