@@ -3,6 +3,7 @@ import {graphql,Link} from 'gatsby';
 import Layout from "../../components/layout";
 import * as Styles from "../../components/blog-post-preview.module.scss";
 import { DateTime } from "luxon";
+import Heading from "../../components/heading";
 
 const BlogPost = ({data}) => {
   let post = data.contentfulBlog;
@@ -11,7 +12,7 @@ const BlogPost = ({data}) => {
   return (
     <Layout>
       <Link to="/blog">Back to blog</Link>
-      <h1>{post.title}</h1>
+      <Heading level={1}>{post.title}</Heading>
       <time className={Styles.publishDate} dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
     </Layout>
   )

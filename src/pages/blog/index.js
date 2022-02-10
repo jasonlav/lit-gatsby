@@ -11,7 +11,7 @@ const BlogIndex = ({ data }) => {
         {data.allContentfulBlog.nodes.map((node) => {
           return (
             <section key={node.id}>
-              <BlogPostPreview post={node}></BlogPostPreview>
+              <BlogPostPreview post={node} headingLevel={2}></BlogPostPreview>
             </section>
           )
         })}
