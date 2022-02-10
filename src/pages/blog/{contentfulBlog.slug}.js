@@ -14,6 +14,7 @@ const BlogPost = ({data}) => {
       <Link to="/blog">Back to blog</Link>
       <Heading level={1}>{post.title}</Heading>
       <time className={Styles.publishDate} dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
+      {(post.minimumAge && post.maximumAge) && <div>Recommended age {post.minimumAge} - {post.maximumAge}</div>}
     </Layout>
   )
 }
@@ -26,6 +27,8 @@ export const query = graphql`
       id
       title
       publishDate
+      minimumAge
+      maximumAge
     }
   }
 `
