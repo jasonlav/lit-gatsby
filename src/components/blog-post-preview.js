@@ -10,6 +10,7 @@ const BlogPostPreview = ({ post, headingLevel }) => {
 
   return (
     <div className={Styles.blogPostPreview}>
+      {post.new && <div className={Styles.newLabel}>NEW</div>}
       <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description}></GatsbyImage>
       <Heading level={headingLevel} className={Styles.title}>
         <Link to={"/blog/" + post.slug}>{post.title}</Link>

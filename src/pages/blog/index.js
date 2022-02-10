@@ -1,5 +1,5 @@
 import React from "react";
-import {graphql,Link} from 'gatsby';
+import {graphql} from 'gatsby';
 import Layout from "../../components/layout";
 import BlogPostPreview from "../../components/blog-post-preview";
 
@@ -30,6 +30,7 @@ query {
       id
       slug
       publishDate
+      new
       billboard {
         description
         gatsbyImageData(width: 300)
