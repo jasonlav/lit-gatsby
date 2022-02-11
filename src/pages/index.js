@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Layout from "../components/layout";
 import "./index.scss";
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Fragment>
             <h1>Welcome!</h1>
-        </Layout>
+        </Fragment>
     )
 }
 

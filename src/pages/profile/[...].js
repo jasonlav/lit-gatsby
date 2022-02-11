@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Layout from "../../components/layout";
 import * as Styles from "./[...].module.scss";
 import { Router, Link } from "@reach/router"
@@ -8,7 +8,7 @@ import ProfileStats from "../../components/profile-stats";
 
 const Profile = ({ params }) => {
   return (
-    <Layout>
+    <Fragment>
       <nav>
         <ul>
           <li><Link to="/profile">Index</Link></li>
@@ -21,7 +21,7 @@ const Profile = ({ params }) => {
         <ProfilePosts path="/posts" />
         <ProfileStats path="/stats" />
       </Router>
-    </Layout>
+    </Fragment>
   )
 }
 

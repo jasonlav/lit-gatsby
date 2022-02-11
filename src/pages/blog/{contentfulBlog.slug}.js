@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {graphql,Link} from 'gatsby';
 import Layout from "../../components/layout";
 import * as Styles from "./{contentfulBlog.slug}.module.scss";
@@ -11,31 +11,28 @@ import { BLOCKS } from '@contentful/rich-text-types'
 const BlogPost = ({data, params, pageContext}) => {
   let post = data.contentfulBlog;
   let publishDate = DateTime.fromISO(post.publishDate);
-  console.log(params, pageContext);
 
   return (
-    <Layout>
-      <div className={Styles.root}>
-        <Link to="/blog" className={Styles.back}>Back to blog</Link>
-        <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description} className={Styles.billboard} />
-        <Heading level={1}>{post.title}</Heading>
-        <time className={Styles.publishDate} dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
-        {(post.minimumAge && post.maximumAge) && <div>Recommended age {post.minimumAge} - {post.maximumAge}</div>}
-        {renderRichText(post.body, {
-          renderNode: {
-            [BLOCKS.EMBEDDED_ASSET]: (node) => {
-              const { gatsbyImageData, description } = node.data.target;
-              return (
-                <GatsbyImage
-                  image={getImage(gatsbyImageData)}
-                  alt={description}
-                />
-              )
-            }
+    <div className={Styles.root}>
+      <Link to="/blog" className={Styles.back}>Back to blog</Link>
+      <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description} className={Styles.billboard} />
+      <Heading level={1}>{post.title}</Heading>
+      <time className={Styles.publishDate} dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
+      {(post.minimumAge && post.maximumAge) && <div>Recommended age {post.minimumAge} - {post.maximumAge}</div>}
+      {renderRichText(post.body, {
+        renderNode: {
+          [BLOCKS.EMBEDDED_ASSET]: (node) => {
+            const { gatsbyImageData, description } = node.data.target;
+            return (
+              <GatsbyImage
+                image={getImage(gatsbyImageData)}
+                alt={description}
+              />
+            )
           }
-        })}
-      </div>
-    </Layout>
+        }
+      })}
+    </div>
   )
 }
 
