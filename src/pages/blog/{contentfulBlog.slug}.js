@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React  from "react";
 import {graphql,Link} from 'gatsby';
-import Layout from "../../components/layout";
 import * as Styles from "./{contentfulBlog.slug}.module.scss";
 import { DateTime } from "luxon";
 import Heading from "../../components/heading";
@@ -17,7 +16,7 @@ const BlogPost = ({data, params, pageContext}) => {
       <Link to="/blog" className={Styles.back}>Back to blog</Link>
       <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description} className={Styles.billboard} />
       <Heading level={1}>{post.title}</Heading>
-      <time className={Styles.publishDate} dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
+      <time dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
       {(post.minimumAge && post.maximumAge) && <div>Recommended age {post.minimumAge} - {post.maximumAge}</div>}
       {renderRichText(post.body, {
         renderNode: {
