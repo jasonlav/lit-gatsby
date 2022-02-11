@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as Styles from "./header.module.scss";
 import { Link } from "gatsby";
 import { useLocation } from '@reach/router';
+import logo from "./../images/logo.png";
 
 const Header = () => {
   const location = useLocation();
@@ -13,6 +14,9 @@ const Header = () => {
 
   return (
     <header className={`${Styles.header} ${(condensed) ? Styles.condensed : Styles.full}`}>
+      <Link to="/" className={Styles.logo}>
+        <img src={logo} alt="Curious Media" />
+      </Link>
       <nav>
         <ul className={Styles.links}>
           <li className={Styles.link}><Link to="/" activeClassName={Styles.active}>Home</Link></li>

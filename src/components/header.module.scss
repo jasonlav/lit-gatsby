@@ -1,5 +1,17 @@
 .header {
   background-color: #EFEFEF;
+  display: flex;
+}
+
+.logo {
+  width: 100px;
+  margin-right: 1em;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .active {
