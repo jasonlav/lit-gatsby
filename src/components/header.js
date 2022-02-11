@@ -9,7 +9,7 @@ const Header = () => {
 
   useEffect(() => {
     setCondensed(!!(location.pathname.match(/\/profile/)));
-  });
+  }, [location]);
 
   return (
     <header className={`${Styles.header} ${(condensed) ? Styles.condensed : Styles.full}`}>
