@@ -31,6 +31,7 @@ query {
       slug
       publishDate
       new
+      gatsbyPath(filePath:"/blog/{contentfulBlog.slug}")
       billboard {
         description
         gatsbyImageData(width: 300)

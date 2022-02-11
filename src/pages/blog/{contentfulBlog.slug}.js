@@ -8,9 +8,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS } from '@contentful/rich-text-types'
 
-const BlogPost = ({data}) => {
+const BlogPost = ({data, params, pageContext}) => {
   let post = data.contentfulBlog;
   let publishDate = DateTime.fromISO(post.publishDate);
+  console.log(params, pageContext);
 
   return (
     <Layout>

@@ -13,7 +13,7 @@ const BlogPostPreview = ({ post, headingLevel }) => {
       {post.new && <div className={Styles.newLabel}>NEW</div>}
       <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description}></GatsbyImage>
       <Heading level={headingLevel} className={Styles.title}>
-        <Link to={"/blog/" + post.slug}>{post.title}</Link>
+        <Link to={post.gatsbyPath}>{post.title}</Link>
       </Heading>
       <time className={Styles.publishDate} dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
     </div>
