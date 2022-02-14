@@ -1,4 +1,13 @@
 .footer {
   background-color: #EFEFEF;
   padding: 0.25em;
+  text-align: center;
+
+  a {
+    color: #000;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
