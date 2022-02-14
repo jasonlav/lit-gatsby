@@ -1,0 +1,6 @@
+// Disable image fade in on gatsby-plugin-image implementation
+.gatsby-image-wrapper.no-fade {
+  [data-main-image] {
+    transition: none !important;
+  }
+}
