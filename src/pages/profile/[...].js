@@ -7,7 +7,7 @@ import ProfileStats from "../../components/profile-stats";
 
 const Profile = ({ params }) => {
   return (
-    <div className={Styles.root}>
+    <div className={Styles.root + " content"}>
       <nav>
         <ul>
           <li><Link to="/profile">Index</Link></li>

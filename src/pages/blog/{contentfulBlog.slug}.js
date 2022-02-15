@@ -14,7 +14,7 @@ const BlogPost = ({data, params, pageContext}) => {
   let publishDate = DateTime.fromISO(post.publishDate);
 
   return (
-    <div className={Styles.root}>
+    <div className={Styles.root + " content"}>
       <Link to="/blog" className={Styles.back}>Back to blog</Link>
       <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description} className={Styles.billboard} />
       <Heading level={1}>{post.title}</Heading>

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 
 const IndexPage = ({ data }) => {
@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => {
   }
 
   return (
-    <Fragment>
+    <div class="content">
       <h1>Welcome!</h1>
       <ul>
         {tags.map((tag) => {
@@ -56,7 +56,7 @@ const IndexPage = ({ data }) => {
           )
         })}
       </div>
-    </Fragment>
+    </div>
   );
 };
 

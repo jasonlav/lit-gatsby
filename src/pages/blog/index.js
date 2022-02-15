@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {graphql} from 'gatsby';
 import BlogPostPreview from "../../components/blog-post-preview";
 
 const BlogIndex = ({ data }) => {
   return (
-    <Fragment>
+    <div class="content">
       <h1>Blog</h1>
       <div>
         {data.allContentfulBlog.nodes.map((node) => {
@@ -15,7 +15,7 @@ const BlogIndex = ({ data }) => {
           )
         })}
       </div>
-    </Fragment>
+    </div>
   )
 }
 

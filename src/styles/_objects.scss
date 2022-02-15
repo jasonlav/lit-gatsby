@@ -1,1 +1,12 @@
 // Objects – Style rules for elements responsible for layout or structuring.
+
+// Wrap content
+.content {
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
