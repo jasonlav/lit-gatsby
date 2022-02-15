@@ -6,14 +6,14 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const Header = () => {
   const location = useLocation();
-  const [condensed, setCondensed] = useState(0);
+  const [dark, setDark] = useState(0);
 
   useEffect(() => {
-    setCondensed(!!(location.pathname.match(/\/profile/)));
+    setDark(!!(location.pathname.match(/\/profile/)));
   }, [location]);
 
   return (
-    <header className={`${Styles.header} ${(condensed) ? Styles.condensed : Styles.full}`}>
+    <header className={`${Styles.root} ${(dark) ? Styles.dark : Styles.light}`}>
       <Link to="/" className={Styles.logo}>
         <StaticImage src="./../images/logo.png" alt="Curious Media" layout="fixed" width={100} placeholder="none" loading="eager" className="no-fade" />
       </Link>
