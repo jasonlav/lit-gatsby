@@ -1,13 +1,17 @@
 .footer {
   background-color: #EFEFEF;
-  padding: 0.25em;
+  padding: 10px;
   text-align: center;
 
   a {
-    color: #000;
+    color: #333;
 
     &:hover {
       text-decoration: none;
     }
   }
+}
+
+.line {
+  display: block;
 }

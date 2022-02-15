@@ -4,7 +4,8 @@ import * as Styles from "./footer.module.scss";
 const Footer = () => {
     return (
         <footer className={Styles.footer}>
-          <small>Copyright notice. <a href="/file.pdf" target="_blank">PDF download</a>.</small>
+          <small className={Styles.line}>© 2022 Acme, Inc.</small>
+          <small className={Styles.line}><a href="/file.pdf" target="_blank">Privacy Policy</a></small>
         </footer>
     )
 }
