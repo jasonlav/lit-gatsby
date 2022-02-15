@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import {graphql} from 'gatsby';
-import Layout from "../../components/layout";
 import BlogPostPreview from "../../components/blog-post-preview";
 
 const BlogIndex = ({ data }) => {
