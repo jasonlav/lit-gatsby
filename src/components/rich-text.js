@@ -3,6 +3,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS } from "@contentful/rich-text-types";
 import * as Styles from "./rich-text.module.scss";
 import RichTextImage from "./rich-text-image";
+import PropTypes from "prop-types";
 
 const RichText = ({ body }) => {
   return (
@@ -19,6 +20,10 @@ const RichText = ({ body }) => {
       })}
     </div>
   )
+};
+
+RichText.propTypes = {
+  body: PropTypes.any.isRequired
 };
 
 export default RichText;

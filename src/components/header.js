@@ -3,6 +3,7 @@ import * as Styles from "./header.module.scss";
 import { Link } from "gatsby";
 import { useLocation } from '@reach/router';
 import { StaticImage } from "gatsby-plugin-image";
+import PropTypes from "prop-types";
 
 const Header = () => {
   const location = useLocation();
