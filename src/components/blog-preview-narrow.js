@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import * as Styles from "./blog-post-preview-narrow.module.scss";
+import * as Styles from "./blog-preview-narrow.module.scss";
 import Heading from "./heading";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types";
 import ClassNameArray from "../scripts/class-name-array";
 
-const BlogPostPreviewNarrow = ({ post, headingLevel }) => {
+const BlogPreviewNarrow = ({ post, headingLevel }) => {
   return (
     <div className={ClassNameArray([Styles.root])}>
       <Link to={post.path}>
@@ -19,12 +19,12 @@ const BlogPostPreviewNarrow = ({ post, headingLevel }) => {
   )
 };
 
-BlogPostPreviewNarrow.propTypes = {
+BlogPreviewNarrow.propTypes = {
   headingLevel: PropTypes.number,
   post: PropTypes.object.isRequired
 };
 
-BlogPostPreviewNarrow.defaultProps = {
+BlogPreviewNarrow.defaultProps = {
   headingLevel: 1
 };
 
@@ -40,5 +40,5 @@ fragment BlogPostPreviewNarrow on ContentfulBlog {
 }
 `;
 
-export default BlogPostPreviewNarrow;
+export default BlogPreviewNarrow;
 export { Styles };

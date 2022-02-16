@@ -1,6 +1,6 @@
 import React from "react";
 import {graphql} from 'gatsby';
-import BlogPostPreviewFull from "../../components/blog-post-preview-full";
+import BlogPreviewFull from "../../components/blog-preview-full";
 
 const BlogIndex = ({ data }) => {
   return (
@@ -10,7 +10,7 @@ const BlogIndex = ({ data }) => {
         {data.allContentfulBlog.nodes.map((node) => {
           return (
             <section key={node.id}>
-              <BlogPostPreviewFull post={node} headingLevel={2}></BlogPostPreviewFull>
+              <BlogPreviewFull post={node} headingLevel={2}></BlogPreviewFull>
             </section>
           )
         })}

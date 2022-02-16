@@ -4,7 +4,7 @@ import * as Styles from "./{contentfulBlog.slug}.module.scss";
 import { DateTime } from "luxon";
 import Heading from "../../components/heading";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import PostsPromotion from "../../components/posts-promotion";
+import BlogPromotions from "../../components/blog-promotions";
 import RichText from "../../components/rich-text";
 
 const BlogPost = ({data, params, pageContext}) => {
@@ -21,7 +21,7 @@ const BlogPost = ({data, params, pageContext}) => {
       {(post.minimumAge && post.maximumAge) && <div>Recommended age {post.minimumAge} - {post.maximumAge}</div>}
       <RichText body={post.body}></RichText>
       <hr />
-      <PostsPromotion headingLevel={2} headingCopy="Recent Posts" posts={recentPosts}></PostsPromotion>
+      <BlogPromotions headingLevel={2} headingCopy="Recent Posts" posts={recentPosts}></BlogPromotions>
     </div>
   )
 }
