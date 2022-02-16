@@ -1,13 +1,25 @@
+@use 'settings';
+@use 'tools';
+
 .root {
-  //
+  display: block;
 }
 
 .posts {
   display: flex;
   margin-left: -5px;
   margin-right: -5px;
+  flex-wrap: wrap;
 }
 
 .post {
-  margin: 0 5px;
+  padding: 0 5px;
+
+  @include tools.bp-any(lg) {
+    flex: 25% 0 0;
+  }
+
+  @include tools.bp-any(sm, md) {
+    flex: 50% 0 0;
+  }
 }

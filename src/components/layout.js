@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./header";
 import Footer from "./footer";
 import * as Styles from "./layout.module.scss";
-import '../styles/styles.scss';
+import './styles.scss';
 import PropTypes from "prop-types";
 
 const Layout = (props) => {

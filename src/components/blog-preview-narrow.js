@@ -41,4 +41,3 @@ fragment BlogPostPreviewNarrow on ContentfulBlog {
 `;
 
 export default BlogPreviewNarrow;
-export { Styles };
