@@ -21,7 +21,7 @@ const BlogPost = ({data, params, pageContext}) => {
       {(post.minimumAge && post.maximumAge) && <div>Recommended age {post.minimumAge} - {post.maximumAge}</div>}
       <RichText body={post.body}></RichText>
       <hr />
-      <PostsPromotion headingLevel={2} posts={recentPosts}></PostsPromotion>
+      <PostsPromotion headingLevel={2} headingCopy="Recent Posts" posts={recentPosts}></PostsPromotion>
     </div>
   )
 }
@@ -58,13 +58,7 @@ export const query = graphql`
       sort: {order: DESC, fields: publishDate}
     ) {
       nodes {
-        id
-        title
-        path: gatsbyPath(filePath: "/blog/{contentfulBlog.slug}")
-        billboard {
-          gatsbyImageData(layout: CONSTRAINED, aspectRatio: 1.5)
-          description
-        }
+        ...BlogPostPreviewNarrow
       }
     }
   }

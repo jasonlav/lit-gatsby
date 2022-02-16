@@ -1,0 +1,15 @@
+.root {
+  display: block;
+}
+
+
+.title {
+  a {
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

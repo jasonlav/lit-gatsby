@@ -2,21 +2,17 @@ import React from "react";
 import * as Styles from "./posts-promotion.module.scss";
 import Heading from "./heading";
 import PropTypes from "prop-types";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
+import BlogPostPreviewNarrow from "./blog-post-preview-narrow";
 
-const PostsPromotion = ({ posts, headingLevel }) => {
+const PostsPromotion = ({ posts, headingLevel, headingCopy }) => {
   return (
     <div>
-      <Heading level={headingLevel}>Recent posts</Heading>
+      <Heading level={headingLevel}>{headingCopy}</Heading>
       <div className={Styles.posts}>
         {posts.map((post) => {
           return (
             <div className={Styles.post} key={post.id}>
-              <Link to={post.path}>
-                <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description}></GatsbyImage>
-                <Heading level={headingLevel + 1}>{post.title}</Heading>
-              </Link>
+              <BlogPostPreviewNarrow headingLevel={headingLevel + 1} post={post}></BlogPostPreviewNarrow>
             </div>
           )
         })}
@@ -27,6 +23,7 @@ const PostsPromotion = ({ posts, headingLevel }) => {
 
 PostsPromotion.propTypes = {
   headingLevel: PropTypes.number,
+  headingCopy: PropTypes.string.isRequired,
   posts: PropTypes.array
 }
 
