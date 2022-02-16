@@ -1,25 +1,23 @@
 import React from "react";
 import * as Styles from "./new-label.module.scss";
 import PropTypes from "prop-types";
-import ClassNameArray from "../scripts/class-name-array";
-import FindStyles from "../scripts/find-styles";
+import ClassNameArray, { ClassNamePropType } from "../scripts/class-name-array";
 
-const NewLabel = ({ modifiers }) => {
+const NewLabel = ({ className }) => {
   return (
-    <div className={ClassNameArray([Styles.newLabel, ...FindStyles(Styles, modifiers)])}>NEW</div>
+    <div className={ClassNameArray([Styles.newLabel, ...className])}>NEW</div>
   )
 }
 
 NewLabel.propTypes = {
   copy: PropTypes.string,
-  modifiers: PropTypes.array,
-  className: PropTypes.any
+  className: ClassNamePropType
 }
 
 NewLabel.defaultProps = {
   copy: "New",
-  modifiers: ["theme-red", "size-md"],
-  className: null
+  className: [Styles.themeRed, Styles.sizeMd]
 }
 
 export default NewLabel;
+export { Styles };

@@ -4,19 +4,20 @@ import { DateTime } from "luxon";
 import * as Styles from "./blog-post-preview-full.module.scss";
 import Heading from "./heading";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import NewLabel from "./new-label";
+import NewLabel, { Styles as NewLabelStyles } from "./new-label";
 import PropTypes from "prop-types";
+import ClassNameArray from "../scripts/class-name-array";
 
 const BlogPostPreviewFull = ({ post, headingLevel }) => {
   let publishDate = DateTime.fromISO(post.publishDate);
 
   return (
-    <div className={Styles.blogPostPreview}>
+    <div className={ClassNameArray([Styles.blogPostPreview])}>
       <Link to={post.path}>
         <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description}></GatsbyImage>
       </Link>
       <Heading level={headingLevel} className={Styles.title}>
-        <Link to={post.path}>{post.title}</Link> {post.new && <NewLabel></NewLabel>}
+        <Link to={post.path}>{post.title}</Link> {post.new && <NewLabel className={[NewLabelStyles.sizeMd, NewLabelStyles.themeBlue]}></NewLabel>}
       </Heading>
       <time className={Styles.publishDate} dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
     </div>

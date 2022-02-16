@@ -4,10 +4,11 @@ import * as Styles from "./blog-post-preview-narrow.module.scss";
 import Heading from "./heading";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types";
+import ClassNameArray from "../scripts/class-name-array";
 
 const BlogPostPreviewNarrow = ({ post, headingLevel }) => {
   return (
-    <div className={Styles.root}>
+    <div className={ClassNameArray([Styles.root])}>
       <Link to={post.path}>
         <GatsbyImage image={getImage(post.billboard)} alt={post.billboard.description}></GatsbyImage>
       </Link>
@@ -40,3 +41,4 @@ fragment BlogPostPreviewNarrow on ContentfulBlog {
 `;
 
 export default BlogPostPreviewNarrow;
+export { Styles };

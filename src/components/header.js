@@ -3,7 +3,7 @@ import * as Styles from "./header.module.scss";
 import { Link } from "gatsby";
 import { useLocation } from '@reach/router';
 import { StaticImage } from "gatsby-plugin-image";
-import PropTypes from "prop-types";
+import ClassNameArray from "../scripts/class-name-array";
 
 const Header = () => {
   const location = useLocation();
@@ -14,7 +14,7 @@ const Header = () => {
   }, [location]);
 
   return (
-    <header className={`${Styles.root} ${(dark) ? Styles.dark : Styles.light}`}>
+    <header className={ClassNameArray([Styles.root, `${(dark) ? Styles.dark : Styles.light}`])}>
       <Link to="/" className={Styles.logo}>
         <StaticImage src="./../images/logo.png" alt="Curious Media" layout="fixed" width={100} placeholder="none" loading="eager" className="no-fade" />
       </Link>
