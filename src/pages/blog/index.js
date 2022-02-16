@@ -1,6 +1,6 @@
 import React from "react";
 import {graphql} from 'gatsby';
-import BlogPostPreview from "../../components/blog-post-preview";
+import BlogPostPreviewFull from "../../components/blog-post-preview-full";
 
 const BlogIndex = ({ data }) => {
   return (
@@ -10,7 +10,7 @@ const BlogIndex = ({ data }) => {
         {data.allContentfulBlog.nodes.map((node) => {
           return (
             <section key={node.id}>
-              <BlogPostPreview post={node} headingLevel={2}></BlogPostPreview>
+              <BlogPostPreviewFull post={node} headingLevel={2}></BlogPostPreviewFull>
             </section>
           )
         })}
@@ -25,16 +25,7 @@ export const query = graphql`
 query {
   allContentfulBlog {
     nodes {
-      title
-      id
-      slug
-      publishDate
-      new
-      gatsbyPath(filePath:"/blog/{contentfulBlog.slug}")
-      billboard {
-        description
-        gatsbyImageData(width: 300)
-      }
+      ...BlogPostPreviewFull
     }
   }
 }
