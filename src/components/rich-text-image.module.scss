@@ -1,0 +1,16 @@
+.root {
+  display: block;
+  width: fit-content;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  color: #EFEFEF;
+  background-color: #333;
+  font-size: 0.8em;
+  padding: 5px;
+  text-align: center;
+}

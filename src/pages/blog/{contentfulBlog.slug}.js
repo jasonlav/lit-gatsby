@@ -4,9 +4,8 @@ import * as Styles from "./{contentfulBlog.slug}.module.scss";
 import { DateTime } from "luxon";
 import Heading from "../../components/heading";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { renderRichText } from "gatsby-source-contentful/rich-text"
-import { BLOCKS } from '@contentful/rich-text-types'
 import PostsPromotion from "../../components/posts-promotion";
+import RichText from "../../components/rich-text";
 
 const BlogPost = ({data, params, pageContext}) => {
   let post = data.post;
@@ -20,19 +19,7 @@ const BlogPost = ({data, params, pageContext}) => {
       <Heading level={1}>{post.title}</Heading>
       <time dateTime={post.publishDate}>{publishDate.toLocaleString(DateTime.DATE_FULL)}</time>
       {(post.minimumAge && post.maximumAge) && <div>Recommended age {post.minimumAge} - {post.maximumAge}</div>}
-      {renderRichText(post.body, {
-        renderNode: {
-          [BLOCKS.EMBEDDED_ASSET]: (node) => {
-            const { gatsbyImageData, description } = node.data.target;
-            return (
-              <GatsbyImage
-                image={getImage(gatsbyImageData)}
-                alt={description}
-              />
-            )
-          }
-        }
-      })}
+      <RichText body={post.body}></RichText>
       <hr />
       <PostsPromotion headingLevel={2} posts={recentPosts}></PostsPromotion>
     </div>

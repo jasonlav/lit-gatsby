@@ -1,0 +1,21 @@
+.root {
+  li, blockquote {
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  blockquote {
+    font-size: 1.25em;
+    font-style: italic;
+    padding: 1em 0;
+    margin-left: 0.5em;
+    border-top: solid 2px #efefef;
+    border-bottom: solid 2px #efefef;
+    font-weight: bold;
+  }
+}
