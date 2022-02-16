@@ -4,7 +4,7 @@ import BlogPostPreviewFull from "../../components/blog-post-preview-full";
 
 const BlogIndex = ({ data }) => {
   return (
-    <div class="content">
+    <div className={"content"}>
       <h1>Blog</h1>
       <div>
         {data.allContentfulBlog.nodes.map((node) => {

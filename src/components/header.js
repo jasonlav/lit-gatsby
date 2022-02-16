@@ -19,9 +19,9 @@ const Header = () => {
       </Link>
       <nav>
         <ul className={Styles.links}>
-          <li className={Styles.link}><Link to="/" activeClassName={Styles.active} partiallyActive={Styles.active}>Home</Link></li>
-          <li className={Styles.link}><Link to="/blog" activeClassName={Styles.active} partiallyActive={Styles.active}>Blog</Link></li>
-          <li className={Styles.link}><Link to="/profile" activeClassName={Styles.active} partiallyActive={Styles.active}>Profile</Link></li>
+          <li className={Styles.link}><Link to="/" activeClassName={Styles.active}>Home</Link></li>
+          <li className={Styles.link}><Link to="/blog" activeClassName={Styles.active} partiallyActive={true}>Blog</Link></li>
+          <li className={Styles.link}><Link to="/profile" activeClassName={Styles.active} partiallyActive={true}>Profile</Link></li>
         </ul>
       </nav>
     </header>
